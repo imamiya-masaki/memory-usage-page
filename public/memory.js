@@ -1,4 +1,4 @@
-const memoryStorage = [];
+let memoryStorage = [];
 
 function updateMemoryUsage() {
   if (performance.memory) {
@@ -20,7 +20,6 @@ function updateMemoryUsage() {
 }
 
 async function usualMemory() {
-  console.log('usual')
   const mem = await performance.measureUserAgentSpecificMemory()
   return mem.bytes
 }
