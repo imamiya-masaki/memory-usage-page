@@ -10,14 +10,17 @@ function updateMemoryUsage() {
     console.log('performance.memory', performance.memory)
   } else {
     document.getElementById('memoryUsage').textContent = 'performance.memory not supported';
+    console.log('maybe usual')
     usualMemory().then(t => {
       const usual = t
+      console.log('usual', t)
       document.getElementById('memoryUsage').textContent = usual.toFixed(2);
     })
   }
 }
 
 async function usualMemory() {
+  console.log('usual')
   const mem = await performance.measureUserAgentSpecificMemory()
   return mem.bytes
 }
